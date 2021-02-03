@@ -35,3 +35,33 @@ p_polyf_t puissance_polynome (p_polyf_t p, int n) ;
 
 p_polyf_t composition_polynome (p_polyf_t p, p_polyf_t q) ;
 
+typedef struct {
+  int degre ;
+  float *coeff;
+  float *val
+} polyf_creux_t, *p_polyf_creux_t;
+
+p_polyf_creux_t creer_polynome_creux (int degre) ;
+
+void init_polynome_creux (p_polyf_creux_t p, float x) ;
+
+void detruire_polynome_creux (p_polyf_creux_t p) ;
+
+p_polyf_creux_t lire_polynome_creux_float (char *nom_fichier) ;
+
+void ecrire_polynome_creux_float (p_polyf_creux_t p) ;
+
+int egalite_polynome_creux (p_polyf_creux_t p1, p_polyf_creux_t p2) ;
+
+p_polyf_creux_t addition_polynome_creux (p_polyf_creux_t p1, p_polyf_creux_t p2) ;
+
+p_polyf_creux_t multiplication_polynome_scalaire_creux (p_polyf_creux_t p, float alpha) ;
+
+float eval_polynome_creux (p_polyf_creux_t p, float x) ;
+
+p_polyf_creux_t multiplication_polynomes_creux (p_polyf_creux_t p1, p_polyf_creux_t p2) ;
+
+p_polyf_creux_t puissance_polynome_creux (p_polyf_creux_t p, int n) ;
+
+p_polyf_creux_t composition_polynome_creux (p_polyf_creux_t p, p_polyf_creux_t q) ;
+
