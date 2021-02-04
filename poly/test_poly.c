@@ -38,6 +38,26 @@ int main (int argc, char **argv)
   printf("\nComposition : \n");
   ecrire_polynome_float(composition_polynome(p1, p2));
 
+    printf("\nTESTS POLYNOMES CREUX \n");
+
+  ecrire_polynome_creux_float (p1) ;
+  ecrire_polynome_creux_float (p2) ;
+
+  printf("\nEgalité : \n");
+  printf("%d\n",egalite_polynome(p1,p2));
+  printf("\nAddition : \n");
+  ecrire_polynome_creux_float(addition_polynome(p1, p2));
+  printf("\nMultiplication : \n");
+  ecrire_polynome_creux_float(multiplication_polynomes(p1, p2));
+  printf("\nMultiplication scalaire : \n");
+  ecrire_polynome_creux_float(multiplication_polynome_scalaire(p1, 5.0));
+  printf("\nEvaluation : \n");
+  printf("%f",eval_polynome(p1, 2.0));
+  printf("\nPuissance : \n");
+  ecrire_polynome_creux_float(puissance_polynome(p1, 2));
+  printf("\nComposition : \n");
+  ecrire_polynome_creux_float(composition_polynome(p1, p2));
+
 
   /*
     ajouter du code pour tester les fonctions

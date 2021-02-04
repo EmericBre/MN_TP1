@@ -204,14 +204,42 @@ p_polyf_t composition_polynome (p_polyf_t p, p_polyf_t q)
 }
 
 
-// C'est ce que je propose, il se peut que ce soit totalement faux
 
-// En gros un polyf_creux_t 1 + 2x + 0x2 + 4x3 -> 1 + 2x + 4x3
-// Donc il faudrait un "tableau" avec le coeff et un avec la valeur et le degre pour avoir le plus haut coeff
-// degre 3
-// coeff [0, 1, 3]
-// valeur [1, 2, 4]
-// boucle (de 0 à degre | i++)
-//    i = 0, coeff[i] = 0, valeur[i] = 1
-//    i = 1, coeff[i] = 1, valeur[i] = 2
-//    i = 2, coeff[i] = 3, valeur[i] = 4
+//------------------------------------------------POLYNOMES CREUX---------------------------------------------------------------//
+
+void ecrire_polynome_creux_float (p_polyf_t p)
+{
+  int i ;
+
+  int start = 0;
+
+  if (p->coeff[0] != 0.0 && p->coeff[1] != 0.0) {
+    start = 1;
+    printf ("%f + %f x ", p->coeff [0], p->coeff [1]) ;
+  }
+  else if (p->coeff[0] != 0.0) {
+    start = 1;
+    printf ("%f ", p->coeff [0]) ;
+  }
+  else if (p->coeff[1] != 0.0) {
+    start = 1;
+    printf ("%f x ", p->coeff [1]) ;
+  }
+  
+  for (i = 2 ; i <= p->degre; i++)
+    {  
+      if (p->coeff[i]!=0.0) {
+        if (start==0) {
+          start = 1;
+          printf ("%f X^%d ", p->coeff [i], i) ;
+        }
+        else {
+          printf ("+ %f X^%d ", p->coeff [i], i) ;
+        }
+      }
+    }
+  
+  printf ("\n") ;
+
+  return ;
+}
