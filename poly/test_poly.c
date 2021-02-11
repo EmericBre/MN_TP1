@@ -18,9 +18,11 @@ int main (int argc, char **argv)
   p1 = lire_polynome_float (argv [1]) ;
   p2 = lire_polynome_float (argv [2]) ;
 
-  printf("\nTESTS POLYNOMES PLEINS \n");
+  printf("\nTESTS POLYNOMES PLEINS \n\n");
 
+  printf("p1 : ");
   ecrire_polynome_float (p1) ;
+  printf("p2 : ");
   ecrire_polynome_float (p2) ;
 
   printf("\nEgalité : \n");
@@ -38,14 +40,16 @@ int main (int argc, char **argv)
   printf("\nComposition : \n");
   ecrire_polynome_float(composition_polynome(p1, p2));
 
-  printf("\nTESTS POLYNOMES CREUX \n");
+  printf("\nTESTS POLYNOMES CREUX \n\n");
 
   p_monome m1, m2 ;
 
   m1 = lire_polynome_creux_float (argv [1]) ;
   m2 = lire_polynome_creux_float (argv [2]) ;
 
+  printf("p1 creux : ");
   ecrire_polynome_creux_float (m1) ;
+  printf("p2 creux : ");
   ecrire_polynome_creux_float (m2) ;
 
   printf("\nEgalité : \n");

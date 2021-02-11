@@ -377,7 +377,7 @@ p_monome lire_polynome_creux_float(char *nom_fichier)
   tete = tmp;
   int i = 0;
   int j;
-  j = fscanf(f, "%e", &cr);
+  j = fscanf(f, "%f", &cr);
   while (j == 1)
 
   {
@@ -390,70 +390,10 @@ p_monome lire_polynome_creux_float(char *nom_fichier)
       tmp = monome;
     }
     i++;
-    j = fscanf(f, "%e", &cr);
+    j = fscanf(f, "%f", &cr);
   }
   return tete->suivant;
 }
-
-// p_monome lire_polynome_creux_float(char *nom_fichier)
-// {
-//   FILE *f;
-//   p_monome p;
-//   int degre;
-//   int i;
-//   int cr;
-
-//   f = fopen(nom_fichier, "r");
-//   if (f == NULL)
-//   {
-//     fprintf(stderr, "erreur ouverture %s \n", nom_fichier);
-//     exit(-1);
-//   }
-
-//   cr = fscanf(f, "%d", &degre);
-//   if (cr != 1)
-//   {
-//     fprintf(stderr, "erreur lecture du degre\n");
-//     exit(-1);
-//   }
-
-//   p = creer_monome();
-//   float current;
-
-//   cr = fscanf(f, "%f", &current);
-//   if (cr != 1)
-//   {
-//     fprintf(stderr, "erreur lecture coefficient %d\n", 0);
-//     exit(-1);
-//   }
-//   if (current != 0.0) {
-//     p->degre = 0;
-//     p->coeff = current;
-//   }
-
-//   p_monome prec = p;
-
-//   for (i = 1; i <= degre; i++)
-//   {
-//     p_monome p2 = creer_monome();
-//     cr = fscanf(f, "%f", &current);
-//     if (cr != 1)
-//     {
-//       fprintf(stderr, "erreur lecture coefficient %d\n", i);
-//       exit(-1);
-//     }
-//     if (current != 0.0) {
-//       p2->degre = i;
-//       p2->coeff = current;
-//       prec->suivant = p2;
-//       prec = prec->suivant;
-//     }
-//   }
-
-//   fclose(f);
-
-//   return p;
-// }
 
 p_monome multiplication_polynome_creux_scalaire (p_monome p, float alpha) {
 
@@ -569,52 +509,3 @@ p_monome composition_polynome_creux (p_monome p, p_monome q) {
   }
   return poq;
 }
-
-// void ecrire_polynome_creux_float (p_polyf_t p)
-// {
-//   int i ;
-
-//   int start = 0;
-
-//   if (p->coeff[0] != 0.0 && p->coeff[1] != 0.0) {
-//     start = 1;
-//     printf ("%f + %f x ", p->coeff [0], p->coeff [1]) ;
-//   }
-//   else if (p->coeff[0] != 0.0) {
-//     start = 1;
-//     printf ("%f ", p->coeff [0]) ;
-//   }
-//   else if (p->coeff[1] != 0.0) {
-//     start = 1;
-//     printf ("%f x ", p->coeff [1]) ;
-//   }
-
-//   for (i = 2 ; i <= p->degre; i++)
-//     {
-//       if (p->coeff[i]!=0.0) {
-//         if (start==0) {
-//           start = 1;
-//           printf ("%f X^%d ", p->coeff [i], i) ;
-//         }
-//         else {
-//           printf ("+ %f X^%d ", p->coeff [i], i) ;
-//         }
-//       }
-//     }
-
-//   printf ("\n") ;
-
-//   return ;
-// }
-
-// C'est ce que je propose, il se peut que ce soit totalement faux
-
-// En gros un polyf_creux_t 1 + 2x + 0x2 + 4x3 -> 1 + 2x + 4x3
-// Donc il faudrait un "tableau" avec le coeff et un avec la valeur et le degre pour avoir le plus haut coeff
-// degre 3
-// coeff [0, 1, 3]
-// valeur [1, 2, 4]
-// boucle (de 0 à degre | i++)
-//    i = 0, coeff[i] = 0, valeur[i] = 1
-//    i = 1, coeff[i] = 1, valeur[i] = 2
-//    i = 2, coeff[i] = 3, valeur[i] = 4
