@@ -50,7 +50,7 @@ int main (int argc, char **argv)
 
   start = _rdtsc () ;
   
-        p3 = addition_polynome (p1, p2) ;
+        p3 = addition_polynomes (p1, p2) ;
 
   end = _rdtsc () ;
 
@@ -65,7 +65,7 @@ int main (int argc, char **argv)
 
   start = _rdtsc () ;
   
-        p3creux = addition_polynome_creux (p1creux, p2creux) ;
+        p3creux = addition_polynomes_creux (p1creux, p2creux) ;
 
   end = _rdtsc () ;
 
@@ -110,7 +110,7 @@ int main (int argc, char **argv)
 
   start = _rdtsc () ;
   
-        p3 = composition_polynome (p1, p2) ;
+        p3 = composition_polynomes (p1, p2) ;
 
   end = _rdtsc () ;
 
@@ -125,7 +125,7 @@ int main (int argc, char **argv)
 
   start = _rdtsc () ;
   
-        p3creux = composition_polynome_creux (p1creux, p2creux) ;
+        p3creux = composition_polynomes_creux (p1creux, p2creux) ;
 
   end = _rdtsc () ;
 
@@ -146,7 +146,7 @@ int main (int argc, char **argv)
 
     start = _rdtsc () ;
   
-        p6 = addition_polynome (p4, p5) ;
+        p6 = addition_polynomes (p4, p5) ;
 
   end = _rdtsc () ;
 

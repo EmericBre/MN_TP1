@@ -86,7 +86,7 @@ void ecrire_polynome_float(p_polyf_t p)
   return;
 }
 
-int egalite_polynome(p_polyf_t p1, p_polyf_t p2)
+int egalite_polynomes(p_polyf_t p1, p_polyf_t p2)
 {
   register unsigned int i;
 
@@ -104,7 +104,7 @@ int egalite_polynome(p_polyf_t p1, p_polyf_t p2)
   return 1;
 }
 
-p_polyf_t addition_polynome(p_polyf_t p1, p_polyf_t p2)
+p_polyf_t addition_polynomes(p_polyf_t p1, p_polyf_t p2)
 {
   p_polyf_t p3;
   register unsigned int i;
@@ -196,7 +196,7 @@ p_polyf_t puissance_polynome(p_polyf_t p, int n)
   return p2;
 }
 
-p_polyf_t composition_polynome(p_polyf_t p, p_polyf_t q)
+p_polyf_t composition_polynomes(p_polyf_t p, p_polyf_t q)
 {
   register unsigned int i;
   p_polyf_t poq = creer_polynome(p->degre * q->degre);
@@ -204,7 +204,7 @@ p_polyf_t composition_polynome(p_polyf_t p, p_polyf_t q)
 
   for (i = 0; i <= p->degre; i++)
   {
-    poq = addition_polynome(poq, multiplication_polynome_scalaire(puissance_polynome(q, i), p->coeff[i]));
+    poq = addition_polynomes(poq, multiplication_polynome_scalaire(puissance_polynome(q, i), p->coeff[i]));
   }
   return poq;
 }
@@ -232,7 +232,7 @@ void detruire_polynome_creux(p_monome monome)
   return;
 }
 
-int egalite_polynome_creux(p_monome m1, p_monome m2)
+int egalite_polynomes_creux(p_monome m1, p_monome m2)
 {
   while (m1 != NULL || m2 != NULL)
   {
@@ -249,7 +249,7 @@ int egalite_polynome_creux(p_monome m1, p_monome m2)
   return 1;
 }
 
-p_monome addition_polynome_creux(p_monome m1, p_monome m2)
+p_monome addition_polynomes_creux(p_monome m1, p_monome m2)
 {
   p_monome premier;
   p_monome m3 = creer_monome();
@@ -499,12 +499,12 @@ p_monome puissance_polynome_creux(p_monome p, int n) {
   return p2;
 }
 
-p_monome composition_polynome_creux (p_monome p, p_monome q) {
+p_monome composition_polynomes_creux (p_monome p, p_monome q) {
   p_monome poq = creer_monome();
   p_monome tmp = creer_monome();
   tmp = p;
   while(tmp != NULL) {
-    poq = addition_polynome_creux(multiplication_polynome_creux_scalaire(puissance_polynome_creux(q, tmp->degre), tmp->coeff), poq);
+    poq = addition_polynomes_creux(multiplication_polynome_creux_scalaire(puissance_polynome_creux(q, tmp->degre), tmp->coeff), poq);
     tmp = tmp->suivant;
   }
   return poq;

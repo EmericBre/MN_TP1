@@ -21,9 +21,9 @@ p_polyf_t lire_polynome_float (char *nom_fichier) ;
 
 void ecrire_polynome_float (p_polyf_t p) ;
 
-int egalite_polynome (p_polyf_t p1, p_polyf_t p2) ;
+int egalite_polynomes (p_polyf_t p1, p_polyf_t p2) ;
 
-p_polyf_t addition_polynome (p_polyf_t p1, p_polyf_t p2) ;
+p_polyf_t addition_polynomes (p_polyf_t p1, p_polyf_t p2) ;
 
 p_polyf_t multiplication_polynome_scalaire (p_polyf_t p, float alpha) ;
 
@@ -33,7 +33,7 @@ p_polyf_t multiplication_polynomes (p_polyf_t p1, p_polyf_t p2) ;
 
 p_polyf_t puissance_polynome (p_polyf_t p, int n) ;
 
-p_polyf_t composition_polynome (p_polyf_t p, p_polyf_t q) ;
+p_polyf_t composition_polynomes (p_polyf_t p, p_polyf_t q) ;
 
 typedef struct mon {
   int degre ;
@@ -41,15 +41,13 @@ typedef struct mon {
   struct mon *suivant;
 } monome, *p_monome;
 
-p_monome creer_polynome_creux (int degre) ;
-
 p_monome creer_monome();
 
 void detruire_polynome_creux(p_monome monome);
 
-int egalite_polynome_creux (p_monome m1, p_monome m2) ;
+int egalite_polynomes_creux (p_monome m1, p_monome m2) ;
 
-p_monome addition_polynome_creux (p_monome p1, p_monome p2) ;
+p_monome addition_polynomes_creux (p_monome p1, p_monome p2) ;
 
 void detruire_polynome_creux (p_monome p) ;
 
@@ -67,5 +65,5 @@ p_monome multiplication_polynomes_creux (p_monome p1, p_monome p2) ;
 
 p_monome puissance_polynome_creux (p_monome p, int n) ;
 
-p_monome composition_polynome_creux (p_monome p, p_monome q) ;
+p_monome composition_polynomes_creux (p_monome p, p_monome q) ;
 
